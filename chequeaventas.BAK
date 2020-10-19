@@ -1,0 +1,58 @@
+SET STEP ON 
+SELECT * FROM cara		;
+	WHERE isla = lcIsla	;
+	ORDER BY Cara		;
+	INTO CURSOR TmpIsla
+*
+*
+nombre_servidor ='192.168.1.9\SQLEXPRESS'
+nombre_base_datos ='XPUMP_DB'
+nombre_usuario ='userpec'
+clave_usuario ='123456'
+
+BaseDatos = conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario,clave_usuario)
+
+
+SELECT Tmpisla
+GO TOP 
+BROW
+
+DO WHILE !EOF()
+
+	STORE Cara TO LcCara
+	
+	
+		aSql =	SQLExec(_numero_conexion, "SELECT * FROM JOURNAL WHERE nEstadoDesp IS NULL and nLado_Surtidor =  " + lcCara  , "tempoSQL" )	
+						
+		 if aSql = -1		
+		 	wait wind "No existen transacciones pendientes "
+
+			return
+ 		 endif  
+			
+		SELE tempoSQL									
+		go top 
+			
+		
+		IF RECN()>0
+			WAIT WINDOW "EXISTEN TRANSACCIONES PENDIENTES, NO SE PUEDE REALIZAR CIERRE." NOWAIT 
+			
+			
+	
+			RETURN 	
+		ENDIF 
+					
+				
+	
+	
+		SELECT TmpIsla	
+		IF !EOF()
+			skip
+		ELSE
+			exit
+		ENDIF
+	
+	 		
+ENDDO  
+
+SQLDISCONNECT(_numero_conexion)
