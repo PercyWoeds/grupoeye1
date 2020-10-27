@@ -1,7 +1,4 @@
 SET STEP ON 
-
-
-
 SELECT * FROM cara		;
 	WHERE isla = lcIsla	;
 	ORDER BY Cara		;
@@ -18,7 +15,6 @@ BaseDatos = conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario
 
 SELECT Tmpisla
 GO TOP 
-BROW
 
 DO WHILE !EOF()
 
@@ -39,6 +35,8 @@ DO WHILE !EOF()
 		
 		IF RECN()>0
 			WAIT WINDOW "EXISTEN TRANSACCION NO REGISTRADAS!!"
+				
+			
 			RETURN 
 		ENDIF 
 					
