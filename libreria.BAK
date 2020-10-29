@@ -108,6 +108,7 @@ ENDFUNC
 **** SE CONECTA A LA BASE DE DATOS ****
 
 function conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario,clave_usuario)
+
 	conectar="Driver={SQL Server};";
 	+"Server="+nombre_servidor+";";
 	+"Database="+nombre_base_datos+";";
@@ -215,4 +216,4 @@ PARAMETERS cTiempo
 PRIVATE cHora 
 cHora = SUBSTR(cTiempo,1,2) 
 RETURN IIF(cHora < "13",STR(Val(cHora),2),STR(Val(cHora)-12,2))+":"+; 
-SUBSTR(cTiempo,4,2)+IIF(cHora < "13"," a.m."," p.m.") 
+SUBSTR(cTiempo,4,2)+IIF(cHora < "13"," a.m."," p.m.") s
