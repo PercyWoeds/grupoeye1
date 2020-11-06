@@ -127,6 +127,25 @@ function conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario,cl
 
 endfunc
 
+function conectar_base_datos2(nombre_servidor,nombre_base_datos,nombre_usuario,clave_usuario)
+
+	conectar="Driver={SQL Server};";
+	+"Server="+nombre_servidor+";";
+	+"Database="+nombre_base_datos+";";
+	+"uid="+nombre_usuario+";"+"pwd="+clave_usuario+"; "
+	
+	nu_conexion=sqlstringconnect(conectar)
+
+	if nu_conexion<=0
+		messagebox('ESTE USUARIO NO TIENE CONEXION A LA BASE DE DATOS',64,'AVISO')
+		return .f.
+	else
+		wait wind "Conecto con base de datos " NOWAIT 
+		_numero_conexion2=nu_conexion
+		return .t.
+	ENDIF
+
+endfunc
 
 **** INSERTA REGISTRO EN LA BASE DE DATOS RECIBIENDO LA TABLA, CADENA DE CAMPOS Y CADENA DE VALORES ****
 function inserta_registro(tabla,campos,valores)
@@ -216,4 +235,4 @@ PARAMETERS cTiempo
 PRIVATE cHora 
 cHora = SUBSTR(cTiempo,1,2) }
 RETURN IIF(cHora < "13",STR(Val(cHora),2),STR(Val(cHora)-12,2))+":"+; 
-SUBSTR(cTiempo,4,2)+IIF(cHora < "13"," a.m."," p.m.") s
+SUBSTR(cTiempo,4,2)+IIF(cHora < "13"," a.m."," p.m.") 
