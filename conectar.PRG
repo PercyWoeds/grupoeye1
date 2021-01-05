@@ -4,7 +4,7 @@ set proc to libreria
 
 nombre_servidor ='DESKTOP-LEIGGBU\SQLEXPRESS'
 nombre_base_datos ='XPUMP_DB'
-nombre_usuario ='sa'
+nombre_usuario ='userpec'
 clave_usuario ='123456'
 
 

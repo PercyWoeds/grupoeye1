@@ -109,11 +109,12 @@ ENDFUNC
 
 function conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario,clave_usuario)
 
+
 	conectar="Driver={SQL Server};";
 	+"Server="+nombre_servidor+";";
 	+"Database="+nombre_base_datos+";";
 	+"uid="+nombre_usuario+";"+"pwd="+clave_usuario+"; "
-	
+		
 	nu_conexion=sqlstringconnect(conectar)
 
 	if nu_conexion<=0
@@ -141,7 +142,7 @@ function conectar_base_datos2(nombre_servidor,nombre_base_datos,nombre_usuario,c
 		return .f.
 	else
 		wait wind "Conecto con base de datos " NOWAIT 
-		_numero_conexion2=nu_conexion
+		_numero_conexion2 = nu_conexion
 		return .t.
 	ENDIF
 
@@ -229,7 +230,6 @@ secuencia=replicate("0",longitud-(len(allt(str(res)))))+(allt(str(res)))
 return secuencia
 endif
 ENDFUNC
-
 FUNCTION Hora 
 PARAMETERS cTiempo 
 PRIVATE cHora 
