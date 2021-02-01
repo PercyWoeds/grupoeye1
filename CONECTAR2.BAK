@@ -10,7 +10,7 @@ BaseDatos = conectar_base_datos(nombre_servidor,nombre_base_datos,nombre_usuario
 lcCara = '1' 
 lcFecha = "2020/06/30"
 
-aSql =	SQLExec(_numero_conexion,  "SELECT * FROM JOURNAL WHERE NTURNO_JOURNAL = 2863 "   , "tempo"  )	
+aSql =	SQLExec(_numero_conexion,  "SELECT * FROM JOURNAL WHERE NTURNO_JOURNAL > = 2964 and   NTURNO_JOURNAL <= 3000"   , "tempo"  )	
 
 sele Tempo
 GO TOP
